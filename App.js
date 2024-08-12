@@ -1,20 +1,38 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React, { useState } from 'react';
+import { View, StyleSheet, Image } from 'react-native';
+import FormularioCep from './components/FormularioCep';
+import ExibicaoEndereco from './components/ExibicaoEndereco';
+import logoCorreio from './assets/logo_correio.png';
 
-export default function App() {
+const App = () => {
+  const [endereco, setEndereco] = useState(null);
+
+  const handleBuscarEndereco = (enderecoBuscado) => {
+    setEndereco(enderecoBuscado);
+  };
+
   return (
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
+      <Image source={logoCorreio} style={styles.logo} />
+      <FormularioCep aoBuscarEndereco={handleBuscarEndereco} />
+      <ExibicaoEndereco endereco={endereco} />
     </View>
   );
-}
+};
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
     justifyContent: 'center',
+    alignItems: 'center',
+    padding: 20,
+    backgroundColor: '#FFD752',
   },
+  logo: {
+    width: 200,
+    height: 136,
+    marginBottom: 20,
+  }
 });
+
+export default App;
