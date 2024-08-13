@@ -10,6 +10,7 @@ const ExibicaoEndereco = ({ endereco }) => {
       <Text style={styles.texto}>Bairro: {endereco.bairro}</Text>
       <Text style={styles.texto}>Cidade: {endereco.localidade}</Text>
       <Text style={styles.texto}>Estado: {endereco.uf}</Text>
+      <Text style={styles.texto}>DDD: {endereco.ddd}</Text>
     </View>
   );
 };
